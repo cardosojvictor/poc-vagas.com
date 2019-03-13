@@ -9,9 +9,12 @@ https://github.com/typicode/json-server#access-from-anywhere . Através desse 'f
 
 REST APIs para as operações de leitura/escrita, POSTs e GETs:
 
-http://localhost:3000/jobs 
+http://localhost:3000/jobs
+
 http://localhost:3000/candidates 
+
 http://localhost:3000/jobApplications 
+
 http://localhost:3000/candidatesRanking 
 
 O arquivo db.json é responsavel por armazenar todos os dados gerados pelos POSTs, cadastro das vagas, candidatos e candidaturas. O JSON-SERVER gera ids automaticamente para cada novo POST executado. Para o candidatesRanking é armazendo o resultado dos canditados e suas pontuações, em orderm decrescente. 
