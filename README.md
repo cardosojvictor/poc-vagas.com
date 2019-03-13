@@ -28,8 +28,11 @@ O Angular estabelece uma aquitetura onde é possivel organizar um projeto adotan
 Durante a execução do APP mantenho em memoria todas os dados fornecidos nos seguintes arrays dos objetos que representam cada entidade da solução, jobs, candidates, jobApplications e os rankingCandidates:
 
   jobs: Job[] = [];
+  
   candidates: Candidate[] = [];
+  
   jobApplications: JobApplication[] = [];
+  
   rankingCandidates: CandidatesRanking[] = [];
   
 O construtor do componente principal, AppComponent, declara através de injeção de dependencia os serviços que uso no componente, tais como os ApiServices utilizados para comunica com o back-end, por meio das RESTs APIs.
