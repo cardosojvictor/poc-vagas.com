@@ -57,6 +57,14 @@ export class AppComponent implements OnInit{
       });
   }
 
+    /* orderCandidatesForJobs function is the main method that searches for the jobApplications and 
+    relate the job applied by the candidate in order to create the 'candidates Ranking'. Besides that
+    this function is the entry point for the whole app, which responsability is to trigger the other functions
+    in this component to accomplish all the calculations needed, that is, to find the distance, to calculate the
+    score and to finally call the function responsible to order the candidates by their job applications in descentend 
+    order. This method is trigged when the user hit the button 'CLASSIFICAR CANDIDATOS' in the main page of this app,
+    implemented in the .html file app.componenet.html.
+  */
   public orderCandidatesForJobs() 
   {
     this.loadData();
@@ -96,6 +104,11 @@ export class AppComponent implements OnInit{
     this.orderCandidatesAndCreateRanking(this.rankingCandidates);
   }
 
+
+  /* This function order all candidates related to one job application and then call the REST API, for the POST
+  candidatesApiService.createCandidateForRanking. So, all candidates are stored in the db.json after ordering them
+  considering the job in which they applied.
+  */
   public orderCandidatesAndCreateRanking(pRankingCandidate: CandidatesRanking[])
   {
     var postData: string;
@@ -119,6 +132,9 @@ export class AppComponent implements OnInit{
     }
   }
 
+  /* This function calculates the final score achieved by the candidate, considering the distance, 
+    the experience level and the formula to reach the final result.
+  */
   public calculateCandidateScore(pCandidateLocality: string,
     pJobLocality: string,
     pIdCandidate: number,
@@ -140,6 +156,9 @@ export class AppComponent implements OnInit{
     return 100 - 25 * Math.abs(job.nivel - candidate.nivel);
   }
 
+  /* Function that return the score of the candidate depending on the distance between the candidate and
+  the job 
+  */
   public pointsDistanceCandidateAndJob(score: number): number {
     if (score <= 5) {
       return 100;

@@ -31,6 +31,14 @@
       "localizacao": "F",
       "nivel": 5,
       "id": 4
+    },
+    {
+      "empresa": "VAGAS.COM",
+      "titulo": "Software Engineer",
+      "descricao": "Criar uma classificador de candidatos",
+      "localizacao": "D",
+      "nivel": 5,
+      "id": 5
     }
   ],
   "candidates": [
@@ -75,6 +83,13 @@
       "localizacao": "D",
       "nivel": 1,
       "id": 6
+    },
+    {
+      "nome": "Jose Cardoso",
+      "profissao": "Software Engineer",
+      "localizacao": "D",
+      "nivel": 5,
+      "id": 7
     }
   ],
   "jobApplications": [
@@ -97,6 +112,16 @@
       "id_vaga": 3,
       "id_pessoa": 4,
       "id": 4
+    },
+    {
+      "id_vaga": 5,
+      "id_pessoa": 7,
+      "id": 5
+    },
+    {
+      "id_vaga": 4,
+      "id_pessoa": 4,
+      "id": 6
     }
   ],
   "candidatesRanking": [
@@ -104,36 +129,9 @@
       "id": 0
     },
     {
-      "nome": "Victor",
-      "profissao": "Coder",
-      "localizacao": "B",
-      "nivel": 3,
-      "score": 100,
+      "id_vaga": 3,
+      "id_pessoa": 6,
       "id": 1
-    },
-    {
-      "nome": "ZE",
-      "profissao": "Desenvolvedor",
-      "localizacao": "E",
-      "nivel": 3,
-      "score": 87,
-      "id": 2
-    },
-    {
-      "nome": "Jose Victor",
-      "profissao": "Engenheiro de Software",
-      "localizacao": "A",
-      "nivel": 4,
-      "score": 75,
-      "id": 3
-    },
-    {
-      "nome": "John Doe",
-      "profissao": "Engenheiro de Software",
-      "localizacao": "F",
-      "nivel": 2,
-      "score": 75,
-      "id": 4
     }
   ]
 }

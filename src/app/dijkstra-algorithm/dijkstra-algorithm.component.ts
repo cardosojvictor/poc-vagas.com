@@ -7,8 +7,6 @@ and also configured the graph nodes according to the exercise description.
 All the localities are represented below using the vertices object and the addVertex function.
 */
 import { Component, OnInit } from '@angular/core';
-
-import { NodeVertex } from './nodeVertex';
 import { Vertex } from './vertex';
 
 @Component({
@@ -21,17 +19,11 @@ export class DijkstraAlgorithmComponent implements OnInit {
   vertices: any;
   constructor() {
       this.vertices = {};
-
       this.addVertex(new Vertex("A", [{ nameOfVertex: "B", weight: 5 }], 1));
-	  
       this.addVertex(new Vertex("B", [{ nameOfVertex: "A", weight: 5 }, { nameOfVertex: "C", weight: 7 }, { nameOfVertex: "D", weight: 3 }], 1)); 
-   
       this.addVertex(new Vertex("C", [{ nameOfVertex: "B", weight: 7 }, { nameOfVertex: "E", weight: 4 }], 1));
-        
       this.addVertex(new Vertex("D", [{ nameOfVertex: "B", weight: 3 }, { nameOfVertex: "E", weight: 10 }, { nameOfVertex: "F", weight: 8 }], 1));
-        
       this.addVertex(new Vertex("E", [{ nameOfVertex: "C", weight: 4 }, { nameOfVertex: "D", weight: 10 }], 1));
-        
       this.addVertex(new Vertex("F", [{ nameOfVertex: "D", weight: 8 }], 1));
   }
 
