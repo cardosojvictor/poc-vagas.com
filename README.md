@@ -2,7 +2,7 @@ Documentação e instruções sobre o 'Desafio para Engenheiro(a) de Software - 
 
 1) Introdução
 
-Construi toda a solução utilizando Angular, sendo a implementação da logica feita em Typescript. Como nos ultimos anos trabalhei com C/C++ e Java na Ericsson, decidi implementar como uma solução front-end pois estou aprendendo Angular desde dezembro de 2018, e o teste me trouxe a chance de aprender ainda mais e aprofundar meus estudos.
+Construi toda a solução utilizando Angular, sendo a implementação da logica feita em Typescript. Como nos ultimos anos trabalhei com C/C++ e Java na Ericsson, decidi implementar como uma solução front-end pois estou aprendendo Angular desde Janeiro deste ano (2019), e o teste me trouxe a chance de aprender ainda mais e aprofundar meus estudos.
 
 Utilizei como back-end da solução o JSON-SERVER, cuja documentação pode ser encontrar neste link:
 https://github.com/typicode/json-server#access-from-anywhere . Através desse 'fake' back-end pude construir a escrita e leitura dos JSONs relativos aos candidatos, vagas em que se aplicaram e o ranking dos candidatos baseados em suas pontuações. As operações rests estarão disponiveis por meio dos seguintes end-points:
@@ -94,11 +94,18 @@ http://localhost:3000/candidatesRanking
 
 Pode ser criado diversas vagas e varios candidatos podem se aplicar a elas. O GET do ranking dos candidatos estão concentrados em um unico end-point, o candidatesRanking, trazendo os resultados de todas as vagas e suas candidaturas. Preciso investigar como fazer a criação de novos trechos no arquivo db.json segmentados pelas vagas.
 
-
 6) Instalação do fake back-end JSON-SERVER
 
 Segue em anexo neste email todo o projeto em um arquivo compactado. A raiz do projeto é a pasta poc-vagas/ e nela contém o arquivo db.json, onde todos os dados são gravados e usados pelos GETs e POSTs.
 
-Para subir o JSON-SERVER é necessario instalar o NODE.js na maquina. Tendo disponivel o NODE.js, basta rodar o seguinte comando na pasta poc-vagas/ (pasta raiz do proheto e onde está o db.json):
+Para subir o JSON-SERVER é necessario instalar o NODE.js na maquina. Tendo disponivel o NODE.js, basta rodar o seguinte comando na pasta poc-vagas/ (pasta raiz do projeto e onde está o db.json):
 
 => json-server --watch db.json
+
+7) Possiveis melhorias e novas funcionalidades
+
+Devido ao tempo escasso para implementar a solução, muito ainda poderia ser feito. Como garantir as entradas e saidas dos POSTs, verificando os campos mandatorios e dados que não sejam aceitaveis.
+
+Além disso, categorizar o ranking de candidatos pelas vagas em que se aplicaram (preciso descobrir como fazer isso usando o JSON-SERVER). Todos os candidatos e o ranking das pontuações são mostrados por meio do POST (http://localhost:3000/candidatesRanking).
+
+

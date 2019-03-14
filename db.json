@@ -1,137 +1,27 @@
 {
   "jobs": [
     {
-      "id": 1,
-      "empresa": "Teste",
-      "titulo": "Vaga teste",
-      "descricao": "Criar os mais diferentes tipos de teste",
-      "localizacao": "A",
-      "nivel": 3
-    },
-    {
-      "empresa": "Coder INC",
-      "titulo": "Coder",
-      "descricao": "construir novos sistemas",
-      "localizacao": "E",
-      "nivel": 1,
-      "id": 2
-    },
-    {
-      "empresa": "System INC",
-      "titulo": "Coder",
-      "descricao": "construir novos sistemas",
-      "localizacao": "D",
-      "nivel": 3,
-      "id": 3
-    },
-    {
-      "empresa": "Jose Tecidos",
-      "titulo": "Vendedor",
-      "descricao": "Vender muitos tecidos",
-      "localizacao": "F",
-      "nivel": 5,
-      "id": 4
-    },
-    {
       "empresa": "VAGAS.COM",
       "titulo": "Software Engineer",
       "descricao": "Criar uma classificador de candidatos",
       "localizacao": "D",
       "nivel": 5,
-      "id": 5
+      "id": 1
     }
   ],
   "candidates": [
-    {
-      "id": 1,
-      "nome": "John Doe",
-      "profissao": "Engenheiro de Software",
-      "localizacao": "F",
-      "nivel": 2
-    },
-    {
-      "nome": "Jose Victor",
-      "profissao": "Engenheiro de Software",
-      "localizacao": "A",
-      "nivel": 4,
-      "id": 2
-    },
     {
       "nome": "Victor",
       "profissao": "Coder",
       "localizacao": "B",
       "nivel": 3,
-      "id": 3
-    },
-    {
-      "nome": "ZE",
-      "profissao": "Desenvolvedor",
-      "localizacao": "E",
-      "nivel": 3,
-      "id": 4
-    },
-    {
-      "nome": "Mark",
-      "profissao": "Developer",
-      "localizacao": "D",
-      "nivel": 1,
-      "id": 5
-    },
-    {
-      "nome": "TEST_NAME",
-      "profissao": "Developer",
-      "localizacao": "D",
-      "nivel": 1,
-      "id": 6
-    },
-    {
-      "nome": "Jose Cardoso",
-      "profissao": "Software Engineer",
-      "localizacao": "D",
-      "nivel": 5,
-      "id": 7
+      "id": 1
     }
   ],
   "jobApplications": [
-    {
-      "id": 1,
-      "id_vaga": 3,
-      "id_pessoa": 2
-    },
-    {
-      "id": 2,
-      "id_vaga": 3,
-      "id_pessoa": 1
-    },
-    {
-      "id_vaga": 3,
-      "id_pessoa": 3,
-      "id": 3
-    },
-    {
-      "id_vaga": 3,
-      "id_pessoa": 4,
-      "id": 4
-    },
-    {
-      "id_vaga": 5,
-      "id_pessoa": 7,
-      "id": 5
-    },
-    {
-      "id_vaga": 4,
-      "id_pessoa": 4,
-      "id": 6
-    }
+
   ],
   "candidatesRanking": [
-    {
-      "id": 0
-    },
-    {
-      "id_vaga": 3,
-      "id_pessoa": 6,
-      "id": 1
-    }
+    
   ]
 }

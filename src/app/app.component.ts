@@ -32,28 +32,44 @@ export class AppComponent implements OnInit{
     private jobApplicationsApiService: JobApplicationsApiService) { }
 
     public ngOnInit() {
+      this.jobs.length = 0;
+      this.candidates.length = 0;
+      this.jobApplications.length = 0;
+      this.rankingCandidates.length = 0;
+
       this.loadData();      
     }
 
   private loadData() {
-    this.jobsApiService
-      .getAllJobs()
-      .subscribe((jobsFromDbJson) => {
-          this.jobs = this.jobs.concat(jobsFromDbJson.slice(this.jobs.length, jobsFromDbJson.length));
-      });
+    this.getAllJobs();
+    this.getAllCandidates();
+    this.getAllJobApplications();
+  }
 
+  public getAllJobApplications() {
+    this.jobApplicationsApiService
+      .getAllJobApplications()
+      .subscribe((jobApplicationsFromDbJson) => {
+        this.jobApplications = this.jobApplications.concat(jobApplicationsFromDbJson.slice
+          (this.jobApplications.length, jobApplicationsFromDbJson.length));
+      });
+  }
+
+  public getAllCandidates() {
     this.candidatesApiService
       .getAllCandidates()
       .subscribe((candidatesFromDbJson) => {
         this.candidates = this.candidates.concat(candidatesFromDbJson.slice
           (this.candidates.length, candidatesFromDbJson.length));
       });
+  }
 
-    this.jobApplicationsApiService
-      .getAllJobApplications()
-      .subscribe((jobApplicationsFromDbJson) => {
-          this.jobApplications = this.jobApplications.concat(jobApplicationsFromDbJson.slice
-            (this.jobApplications.length, jobApplicationsFromDbJson.length));
+  public getAllJobs() {
+    this.jobsApiService
+      .getAllJobs()
+      .subscribe((jobsFromDbJson) => {
+        this.jobs = this.jobs.concat(jobsFromDbJson.slice
+          (this.jobs.length, jobsFromDbJson.length));
       });
   }
 
@@ -70,12 +86,12 @@ export class AppComponent implements OnInit{
     this.loadData();
     for (let index = 0; index < this.jobApplications.length; index++) 
     {
+      const currentJobApplication = this.jobApplications[index];
+      let candidate: Candidate = this.candidates.find((t) => t.id === currentJobApplication.id_pessoa);
+      let job: Job = this.jobs.find((t) => t.id === currentJobApplication.id_vaga);
+
       if(!this.jobApplications[index].alreadyProcessed)
       {
-        const currentJobApplication = this.jobApplications[index];
-        let candidate: Candidate = this.candidates.find((t) => t.id === currentJobApplication.id_pessoa);
-        let job: Job = this.jobs.find((t) => t.id === currentJobApplication.id_vaga);
-
         let candidateScore: number = this.calculateCandidateScore
           (candidate.localizacao,
             job.localizacao,
@@ -95,15 +111,9 @@ export class AppComponent implements OnInit{
         this.rankingCandidates.push(rankingCandidate);
         this.jobApplications[index].alreadyProcessed = true; 
       }
-      else
-      {
-        this.rankingCandidates = this.rankingCandidates.splice(index,1);
-      }
     }
-    
     this.orderCandidatesAndCreateRanking(this.rankingCandidates);
   }
-
 
   /* This function order all candidates related to one job application and then call the REST API, for the POST
   candidatesApiService.createCandidateForRanking. So, all candidates are stored in the db.json after ordering them
@@ -130,6 +140,7 @@ export class AppComponent implements OnInit{
     console.log("Ranking Candidate: " + pRankingCandidate[index].nome + " " + pRankingCandidate[index].profissao
     + " " + pRankingCandidate[index].localizacao + " " + pRankingCandidate[index].nivel + " " + pRankingCandidate[index].score);
     }
+    this.rankingCandidates.length = 0;
   }
 
   /* This function calculates the final score achieved by the candidate, considering the distance, 
